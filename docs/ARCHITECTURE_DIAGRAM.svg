@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%" style="background-color: #0f172a; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Definitions for Gradients and Markers -->
+  <defs>
+    <linearGradient id="gradHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF385C" />
+      <stop offset="100%" stop-color="#E00B41" />
+    </linearGradient>
+    <linearGradient id="gradBoxBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="gradBoxAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FF385C" />
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="40" y="30" width="1120" height="70" rx="12" fill="url(#gradBoxBlue)" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="73" fill="#ffffff" font-size="22" font-weight="700">Production-Scale Vacation-Rental Marketplace Architecture</text>
+  <text x="960" y="73" fill="#38bdf8" font-size="14" font-weight="600">Enterprise Blueprint</text>
+
+  <!-- Level 1: Global Clients -->
+  <g transform="translate(60, 130)">
+    <rect width="1080" height="75" rx="10" fill="url(#gradBoxAccent)" stroke="#475569" stroke-width="1.5" />
+    <text x="30" y="35" fill="#94a3b8" font-size="12" font-weight="600" text-transform="uppercase">1. Client Tier</text>
+    <text x="30" y="58" fill="#ffffff" font-size="15" font-weight="600">Desktop Web (React / SSR) · Mobile Web (PWA) · iOS / Android Native Apps</text>
+    <rect x="790" y="20" width="260" height="36" rx="6" fill="#1e293b" stroke="#0ea5e9" stroke-width="1" />
+    <text x="810" y="43" fill="#38bdf8" font-size="13" font-weight="600">FCP &lt; 0.8s · TanStack Query</text>
+  </g>
+
+  <!-- Connection 1 -> 2 -->
+  <line x1="600" y1="205" x2="600" y2="235" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Level 2: CDN & Edge -->
+  <g transform="translate(60, 235)">
+    <rect width="1080" height="75" rx="10" fill="url(#gradBoxAccent)" stroke="#475569" stroke-width="1.5" />
+    <text x="30" y="32" fill="#94a3b8" font-size="12" font-weight="600" text-transform="uppercase">2. Global Edge &amp; CDN Layer (Cloudflare Anycast / Fastly)</text>
+    <text x="30" y="56" fill="#ffffff" font-size="14">DDoS Mitigation &amp; WAF · Edge Image Transcoding (WebP/AVIF) · TLS 1.3 Termination · Static Bundle Caching</text>
+    <rect x="880" y="20" width="170" height="36" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+    <text x="900" y="43" fill="#34d399" font-size="13" font-weight="600">Cache Hit: 98.4%</text>
+  </g>
+
+  <!-- Connection 2 -> 3 -->
+  <line x1="600" y1="310" x2="600" y2="340" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Level 3: API Gateway -->
+  <g transform="translate(60, 340)">
+    <rect width="1080" height="65" rx="10" fill="url(#gradBoxBlue)" stroke="#0284c7" stroke-width="1.5" />
+    <text x="30" y="28" fill="#38bdf8" font-size="12" font-weight="700" text-transform="uppercase">3. API Gateway &amp; Service Mesh (Envoy / Kong)</text>
+    <text x="30" y="50" fill="#f1f5f9" font-size="13">JWT Verification · Rate Limiting · Dynamic Route Dispatcher · Circuit Breakers · Distributed Tracing (OTel)</text>
+  </g>
+
+  <!-- Microservices Tier -->
+  <!-- Service 1: Search -->
+  <g transform="translate(60, 435)">
+    <rect width="340" height="130" rx="10" fill="url(#gradBoxAccent)" stroke="#334155" stroke-width="1.5" />
+    <rect x="15" y="15" width="12" height="12" rx="2" fill="#38bdf8" />
+    <text x="35" y="26" fill="#38bdf8" font-size="14" font-weight="700">Search &amp; Discovery Service</text>
+    <text x="15" y="52" fill="#cbd5e1" font-size="12">• Elasticsearch / OpenSearch</text>
+    <text x="15" y="72" fill="#cbd5e1" font-size="12">• Geo-spatial queries (H3 hex grid)</text>
+    <text x="15" y="92" fill="#cbd5e1" font-size="12">• Date availability bitmap masks</text>
+    <text x="15" y="112" fill="#94a3b8" font-size="11">Latency: &lt; 45ms (p99)</text>
+  </g>
+
+  <!-- Service 2: Listing & Content -->
+  <g transform="translate(430, 435)">
+    <rect width="340" height="130" rx="10" fill="url(#gradBoxAccent)" stroke="#334155" stroke-width="1.5" />
+    <rect x="15" y="15" width="12" height="12" rx="2" fill="#ec4899" />
+    <text x="35" y="26" fill="#f472b6" font-size="14" font-weight="700">Listing &amp; Media Service</text>
+    <text x="15" y="52" fill="#cbd5e1" font-size="12">• PostgreSQL (Read-replicas)</text>
+    <text x="15" y="72" fill="#cbd5e1" font-size="12">• Redis Cluster (L2 Metadata Cache)</text>
+    <text x="15" y="92" fill="#cbd5e1" font-size="12">• S3 Object Store + Sharp Worker</text>
+    <text x="15" y="112" fill="#94a3b8" font-size="11">Throughput: 120k req/sec</text>
+  </g>
+
+  <!-- Service 3: Booking & Payments -->
+  <g transform="translate(800, 435)">
+    <rect width="340" height="130" rx="10" fill="url(#gradBoxAccent)" stroke="#334155" stroke-width="1.5" />
+    <rect x="15" y="15" width="12" height="12" rx="2" fill="#10b981" />
+    <text x="35" y="26" fill="#34d399" font-size="14" font-weight="700">Booking &amp; Checkout Engine</text>
+    <text x="15" y="52" fill="#cbd5e1" font-size="12">• CockroachDB / Spanner (Strict ACID)</text>
+    <text x="15" y="72" fill="#cbd5e1" font-size="12">• Distributed Saga Orchestration</text>
+    <text x="15" y="92" fill="#cbd5e1" font-size="12">• Idempotent Payment Processor</text>
+    <text x="15" y="112" fill="#94a3b8" font-size="11">Consistency: Zero Overbookings</text>
+  </g>
+
+  <!-- Connectors from Gateway to Services -->
+  <path d="M 600 405 L 600 420 L 230 420 L 230 435" fill="none" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 600 405 L 600 435" fill="none" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 600 405 L 600 420 L 970 420 L 970 435" fill="none" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Kafka Event Bus -->
+  <g transform="translate(60, 595)">
+    <rect width="1080" height="60" rx="10" fill="url(#gradBoxBlue)" stroke="#e11d48" stroke-width="1.5" />
+    <text x="30" y="26" fill="#fb7185" font-size="12" font-weight="700" text-transform="uppercase">Distributed Event Streaming Backbone (Apache Kafka / Pulsar)</text>
+    <text x="30" y="47" fill="#ffffff" font-size="13">Topics: `booking.created` · `payment.confirmed` · `listing.updated` · `review.posted` · Partitioned by Property ID</text>
+  </g>
+
+  <!-- Connectors to Event Bus -->
+  <line x1="230" y1="565" x2="230" y2="595" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" />
+  <line x1="600" y1="565" x2="600" y2="595" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" />
+  <line x1="970" y1="565" x2="970" y2="595" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" />
+
+  <!-- Downstream Async Consumers -->
+  <g transform="translate(60, 680)">
+    <rect width="340" height="85" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <text x="20" y="32" fill="#f8fafc" font-size="13" font-weight="700">Notifications &amp; Messaging</text>
+    <text x="20" y="55" fill="#94a3b8" font-size="12">Push, SMS &amp; Email alerts to guest &amp; host</text>
+  </g>
+
+  <g transform="translate(430, 680)">
+    <rect width="340" height="85" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <text x="20" y="32" fill="#f8fafc" font-size="13" font-weight="700">ML &amp; Dynamic Pricing</text>
+    <text x="20" y="55" fill="#94a3b8" font-size="12">Real-time demand forecasting &amp; rates</text>
+  </g>
+
+  <g transform="translate(800, 680)">
+    <rect width="340" height="85" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <text x="20" y="32" fill="#f8fafc" font-size="13" font-weight="700">Data Warehouse &amp; Analytics</text>
+    <text x="20" y="55" fill="#94a3b8" font-size="12">ClickHouse / Snowflake reporting pipeline</text>
+  </g>
+
+  <!-- Connectors from Kafka to Consumers -->
+  <line x1="230" y1="655" x2="230" y2="680" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrowRed)" />
+  <line x1="600" y1="655" x2="600" y2="680" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrowRed)" />
+  <line x1="970" y1="655" x2="970" y2="680" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrowRed)" />
+</svg>

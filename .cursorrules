@@ -1,0 +1,16 @@
+# Project: Airbnb Listing Clone (.cursorrules)
+
+## Architecture & Code Style Guidelines
+- **Framework**: React 18+ with Vite and Tailwind CSS.
+- **Strict Visual Parity**: Emulate Airbnb's design system ("DLS"):
+  - Typography: Circular/San-serif font stack with precise tracking and line heights.
+  - Colors: Brand Coral `#FF385C`, Dark Accent `#D70466`, Charcoal text `#222222`, Muted `#717171`, Borders `#DDDDDD`.
+  - Shadows: `shadow-airbnb` (`0 6px 16px rgba(0,0,0,0.12)`) and `shadow-airbnb-hover` (`0 6px 20px rgba(0,0,0,0.18)`).
+- **Behavioral & Overlay Requirements**:
+  1. Listing Page: 5-hero photo collage, responsive right-side sticky booking card, guest favourite laurel banner.
+  2. Photo Tour: Full-screen overlay, category thumbnail tab bar with smooth scroll, room tags, photo grids.
+  3. Lightbox: Full-screen image viewer, keyboard left/right arrow navigation, Escape to dismiss, 9-dot grid icon to return to photo tour, X to close.
+- **Accessibility & UX**:
+  - Full keyboard trap and focus restoration on modals.
+  - Images must include `referrerPolicy="no-referrer"` to prevent CDN hotlink throttling.
+  - All interactive icons must have `aria-label` tags.
